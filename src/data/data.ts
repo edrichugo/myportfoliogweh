@@ -9,6 +9,7 @@ export const DATA = {
     linkedin: "linkedin.com/in/edrichugo",
     github: "github.com/edrichugo"
   },
+
   skills: [
     { 
       cat: "Languages & Frameworks", 
@@ -19,6 +20,7 @@ export const DATA = {
       items: ["MySQL", "GitHub", "Python", "Kotlin", "Java", "UI/UX Implementation"] 
     }
   ],
+  
   projects: [
     { 
       id: "01", 
