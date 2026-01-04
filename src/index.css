@@ -1,0 +1,38 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,900;1,900&display=swap');
+
+@layer base {
+  :root {
+    --bg: #ffffff;
+    --text: #0a0a0a;
+    --accent: #b48a3d;
+  }
+  .dark {
+    --bg: #050505;
+    --text: #ffffff;
+    --accent: #d4af37;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.5s ease;
+    overflow-x: hidden;
+  }
+}
+
+.text-massive {
+  font-size: 15vw;
+  line-height: 0.8;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+.text-outline {
+  -webkit-text-stroke: 1.5px var(--text);
+  color: transparent;
+}
