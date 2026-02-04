@@ -24,7 +24,7 @@ export default function Navbar({ theme, setTheme }: { theme: string, setTheme: a
         if (entry.isIntersecting) {
           const id = entry.target.id;
           setActiveSection(id);
-          window.history.replaceState(null, '', `/${id}`);
+          window.history.replaceState(null, '', `#${id}`);
         }
       });
     };
@@ -43,7 +43,7 @@ export default function Navbar({ theme, setTheme }: { theme: string, setTheme: a
     setIsOpen(false);
     const element = document.getElementById(id);
     if (element) {
-      window.history.pushState(null, '', `/${id}`);
+      window.history.pushState(null, '', `#${id}`);
       setActiveSection(id);
       window.scrollTo({
         top: element.offsetTop - 80,
@@ -54,7 +54,10 @@ export default function Navbar({ theme, setTheme }: { theme: string, setTheme: a
 
   return (
     <nav className="fixed top-0 left-0 w-full z-[100] p-5 md:p-8 flex justify-between items-center bg-[var(--bg)]/80 backdrop-blur-xl border-b border-current/5 transition-all">
-      <div className="font-black text-xl md:text-2xl tracking-tighter uppercase cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
+      <div className="font-black text-xl md:text-2xl tracking-tighter uppercase cursor-pointer" onClick={() => {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+        window.history.pushState(null, '', window.location.pathname);
+      }}>
         EH.
       </div>
       
@@ -63,7 +66,7 @@ export default function Navbar({ theme, setTheme }: { theme: string, setTheme: a
           {navLinks.map((link) => (
             <a 
               key={link.name} 
-              href={`/${link.id}`}
+              href={`#${link.id}`}
               onClick={(e) => handleNavigation(e, link.id)} 
               className={`transition-all duration-300 ${activeSection === link.id ? 'text-[var(--accent)]' : 'opacity-40 hover:opacity-100'}`}
             >
@@ -86,7 +89,7 @@ export default function Navbar({ theme, setTheme }: { theme: string, setTheme: a
               {navLinks.map((link) => (
                 <a 
                   key={link.name} 
-                  href={`/${link.id}`}
+                  href={`#${link.id}`}
                   onClick={(e) => handleNavigation(e, link.id)} 
                   className={`text-[10px] font-black uppercase tracking-widest p-4 rounded-xl transition-all ${activeSection === link.id ? 'bg-[var(--accent)] text-white' : 'hover:bg-current/5'}`}
                 >

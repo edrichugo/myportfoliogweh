@@ -1,12 +1,12 @@
 {
-  "homepage": "https://edrichugo.github.io/myportfoliogweh/",
+  "homepage": "https://edrichugo.github.io/myportfolio/",
   "name": "my-portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && powershell -Command \"Copy-Item dist/index.html dist/404.html\"",
+    "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build && copy dist\\index.html dist\\404.html",
